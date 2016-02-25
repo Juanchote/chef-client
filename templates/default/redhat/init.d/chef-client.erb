@@ -34,7 +34,7 @@ start() {
     [ -x $exec ] || exit 5
     [ -f $config ] || exit 6
     echo -n $"Starting $prog: "
-    daemon $exec -d -c "$config" -P "$pidfile" -i "$interval" -s "$splay" "$options"
+    daemon $exec -d -c "$config" -P "$pidfile" -i "$interval" -s "$splay" "$options" -l info -L /var/log/chef-client
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
